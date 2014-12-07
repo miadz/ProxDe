@@ -1,6 +1,7 @@
 <?php
 /*
 Project Name: ProxDe
+Version: 1.0
 Type: Modular [PHP Function]
 Creator: Andre S.
 Github: CoolApps45
