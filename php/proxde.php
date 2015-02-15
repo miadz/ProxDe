@@ -103,7 +103,7 @@ function real_ip($type = 1) {
 		}
 		break;
         case 2:
-		# Attempt to collect the potentially real IP (TYPE_3)
+		# Attempt to collect the potentially real IP (TYPE_2)
 		$p_ip = $ext_m;
 		if(!in_array($ip, $excl)) {
 			foreach($proxy_h as $x){
