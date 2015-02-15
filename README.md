@@ -13,11 +13,11 @@ Thanks for reading. :)
 
 Current version
 ------
-v1.0
+v1.1
 
 Features:
 ------
-&bull; Cloudflare support
+&bull; Cloudflare support (Look at the notes in the script in regards to this.)
 <br>
 &bull; An array of proxy headers to detect (see what I did there?)
 <br>
@@ -26,3 +26,8 @@ Features:
 &bull; Ability to modify to your likings or needs
 <br>
 &bull; Use it in your projects and / or site(s)!
+
+Usage:
+------
+<b>real_ip(1)</b> - Returns boolean 'true' if the header results provided match. Of there's no match, returns 'false'.
+<b>real_ip(2)</b> - Outputs potentially real IP address.
