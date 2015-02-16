@@ -51,6 +51,7 @@ function real_ip($type = 1) {
 	); // Headers to go through (used for detection)
 	if(isset($_SERVER['HTTP_CF_CONNECTING_IP'])) {
 		$excl_h = array(
+		'108.162.240.11',
 		'108.162.236.6',
 		'141.101.106.82',
 		'141.101.106.70',
