@@ -15,7 +15,7 @@ v1.1
 
 Features:
 ------
-&bull; Cloudflare support [ALPHA] (Look at the notes in the script in regards to this.)
+&bull; Cloudflare support - ALPHA (Look at the notes in the script in regards to this.)
 <br>
 &bull; An array of proxy headers to detect (see what I did there?)
 <br>
