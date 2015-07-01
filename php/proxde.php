@@ -24,10 +24,6 @@ At the end of the function, there's a couple of examples of how to use the real_
 
 # FUNCTION START
 function real_ip($type = 1) {
-	if(isset($_SERVER['HTTP_CF_CONNECTING_IP'])) {
-		// Check if using Cloudflare's service and if so then set client IP superglobal to use Cloudflares.
-		$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP'];
-	}
 	$ip = $_SERVER['REMOTE_ADDR'];
 	$count = 0; // Starting point for count
 	$excl = array(); // Exclusion list filler
@@ -49,37 +45,11 @@ function real_ip($type = 1) {
 		'FORWARDED_FOR_IP',
 		'HTTP_PROXY_CONNECTION'
 	); // Headers to go through (used for detection)
-	if(isset($_SERVER['HTTP_CF_CONNECTING_IP'])) {
-		$excl_h = array(
-		'108.162.240.11',
-		'108.162.236.6',
-		'141.101.106.82',
-		'141.101.106.70',
-		'199.27.128.0',
-		'173.245.48.0',
-		'103.21.244.0',
-		'103.22.200.0',
-		'103.31.4.0',
-		'141.101.64.0',
-		'108.162.192.0',
-		'190.93.240.0',
-		'188.114.96.0',
-		'197.234.240.0',
-		'198.41.128.0',
-		'162.158.0.0',
-		'104.16.0.0',
-		'2400:cb00::',
-		'2606:4700::',
-		'2803:f800::',
-		'2405:b500::',
-		'2405:8100::'
-		); // Some of CF's IPs to exclude (to avoid false results), if CF is being used
-		$excl = array_merge((array)$excl_h, (array)$excl);
-	}
-	$c_ip = array(
+	$e_ip = array(
 	'0.0.0.0'
 	); // IP exclusion list (client & header IP's), replace the placeholder IP with nothing or with an IP to exclude
-	$excl = array_merge((array)$c_ip, (array)$excl);
+		$excl = array_merge((array)$e_ip, (array)$excl);
+	}
 	switch($type) {
 	case 1:
                 # Detect if IP contains headers (TYPE_1)
@@ -119,7 +89,7 @@ function real_ip($type = 1) {
 		return $p_ip;
 		break;
 	default:
-		echo '<span style="color:red;font-weight:bold;">Error:</span> Invalid value set on first parameter'; // Error if there's no valid parameter value specified
+		trigger_error('Invalid value set on first parameter', E_USER_ERROR); // Error if there's no valid parameter value specified
 		break;
         }
 }
