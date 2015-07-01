@@ -28,4 +28,5 @@ Features:
 Usage:
 ------
 <b>real_ip(1)</b> - Returns boolean 'true' if the header results provided match. If there's no match, returns 'false'.
+<br>
 <b>real_ip(2)</b> - Outputs potentially real IP address.
