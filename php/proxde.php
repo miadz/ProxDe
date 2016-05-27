@@ -99,4 +99,3 @@ else {
 }
 echo '<br>';
 echo real_ip(2);
-?>
